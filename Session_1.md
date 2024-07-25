@@ -5,11 +5,14 @@
 #### Mathematical Procedure:
       C[i][j] = A[i][j] + B[i][j]
 #### Example
-$$ A = \begin{bmatrix} 1 & 2 \\ 
+$$A = \begin{bmatrix} 1 & 2 \\ 
 3 & 4 \end{bmatrix} ,
  B = \begin{bmatrix} 5 & 6 \\ 
-7 & 8 \end{bmatrix} Ans: 
-C = A + B = \begin{bmatrix} 1+5 & 2+6 \\ 
+7 & 8 \end{bmatrix}$$
+
+Ans: 
+
+$$C = A + B = \begin{bmatrix} 1+5 & 2+6 \\ 
 3+7 & 4+8 \end{bmatrix} = \begin{bmatrix} 6 & 8 \\ 
 10 & 12 \end{bmatrix} $$
 
@@ -31,10 +34,13 @@ END FUNCTION
 $$ A = \begin{bmatrix} 9 & 8 \\ 
 7 & 6 \end{bmatrix} ,
  B = \begin{bmatrix} 1 & 2 \\ 
-3 & 4 \end{bmatrix} Ans: 
-C = A - B = \begin{bmatrix} 9-1 & 8-2 \\ 
+3 & 4 \end{bmatrix} $$
+
+Ans: 
+
+$$C = A - B = \begin{bmatrix} 9-1 & 8-2 \\ 
 7-3 & 6-4 \end{bmatrix} = \begin{bmatrix} 8 & 6 \\ 
-4 & 2  \end{bmatrix} $$
+4 & 2  \end{bmatrix}$$
 
 #### Pseudocode
 ````
@@ -47,6 +53,12 @@ FUNCTION matrix_difference(A, B):
     RETURN the matrix C
 END FUNCTION
 ````
+### Matrix Product
+#### Mathematical Procedure
+
+$$ C[i][j] = \sum_{k} A[i][k] \cdot B[k][j] $$
+
+#### Example
 
 
 
