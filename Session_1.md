@@ -58,8 +58,52 @@ END FUNCTION
 
 $$ C[i][j] = \sum_{k} A[i][k] \cdot B[k][j] $$
 
-#### Example
-
-
+#### Pseudocode
+```
+FUNCTION matrix_product(A, B):
+    # Get the dimensions of A and B
+    rows_A = number_of_rows(A)
+    cols_A = number_of_columns(A)
+    rows_B = number_of_rows(B)
+    cols_B = number_of_columns(B)
+    
+    # Check if multiplication is possible
+    IF cols_A != rows_B:
+        RAISE Error("Incompatible matrix dimensions")
+    
+    # Initialize result matrix C
+    C = create_matrix(rows_A, cols_B)
+    
+    # Calculate matrix product
+    FOR each row i FROM 0 TO rows_A-1:
+        FOR each column j FROM 0 TO cols_B-1:
+            # Compute the sum for C[i][j]
+            sum = 0
+            FOR each k FROM 0 TO cols_A-1:
+                sum = sum + A[i][k] * B[k][j]
+            C[i][j] = sum
+    
+    RETURN C
+END FUNCTION
+```
+```
+FUNCTION matrix_product(A, B):
+    Get the number of rows and columns in matrix A
+    Get the number of columns in matrix B
+    Create an empty matrix C with dimensions rows_A x cols_B
+    FOR each row i in A:
+        FOR each column j in B:
+            Initialize C[i][j] to 0
+            FOR each element k in the common dimension:
+                Add the product of A[i][k] and B[k][j] to C[i][j]
+    RETURN the matrix C
+END FUNCTION
+```
+### Determinant
+#### Mathematical Procedure:
+$$
+\text{det}(A) = A[0][0] \cdot A[1][1] - A[0][1] \cdot A[1][0]
+$$
+### 
 
 
