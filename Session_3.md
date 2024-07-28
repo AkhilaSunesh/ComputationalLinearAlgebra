@@ -10,3 +10,5 @@ FUNCTION Solution (A,b):
   Solve using back substitution
 END FUNCTION
 ```
+# Python Fundamentals
+-
