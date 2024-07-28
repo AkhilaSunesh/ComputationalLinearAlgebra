@@ -173,5 +173,83 @@ FUNCTION create_sub_matrix(A, row, col):
     RETURN sub_matrix
 END FUNCTION
 ```
+### Rank
+#### Pseudocode
+```
+FUNCTION matrix_rank(A):
+    # Step 1: Get the dimensions of the matrix
+    rows = number_of_rows(A)
+    cols = number_of_columns(A)
+    
+    # Step 2: Transform the matrix to row echelon form
+    row_echelon_form(A, rows, cols)
+    
+    # Step 3: Count non-zero rows
+    rank = 0
+    FOR each row i FROM 0 TO rows-1:
+        non_zero = FALSE
+        FOR each column j FROM 0 TO cols-1:
+            IF A[i][j] != 0:
+                non_zero = TRUE
+                BREAK
+        IF non_zero:
+            rank = rank + 1
+    
+    RETURN rank
+END FUNCTION
 
+FUNCTION row_echelon_form(A, rows, cols):
+    # Perform Gaussian elimination
+    lead = 0
+    FOR r FROM 0 TO rows-1:
+        IF lead >= cols:
+            RETURN
+        i = r
+        WHILE A[i][lead] == 0:
+            i = i + 1
+            IF i == rows:
+                i = r
+                lead = lead + 1
+                IF lead == cols:
+                    RETURN
+        # Swap rows i and r
+        swap_rows(A, i, r)
+        # Make A[r][lead] = 1
+        lv = A[r][lead]
+        A[r] = [m / float(lv) for m in A[r]]
+        # Make all rows below r have 0 in column lead
+        FOR i FROM r + 1 TO rows-1:
+            lv = A[i][lead]
+            A[i] = [iv - lv * rv for rv, iv in zip(A[r], A[i])]
+        lead = lead + 1
+END FUNCTION
+
+FUNCTION swap_rows(A, row1, row2):
+    temp = A[row1]
+    A[row1] = A[row2]
+    A[row2] = temp
+END FUNCTION
+```
+```
+FUNCTION rank(A):
+    Get the number of rows and columns in matrix A
+    Initialize the rank to 0
+    FOR each row i in A:
+        IF the element in the current row and column is non-zero:
+            Increment the rank
+            FOR each row below the current row:
+                Calculate the multiplier to zero out the element below the diagonal
+                Subtract the appropriate multiple of the current row from each row below
+        ELSE:
+            Initialize a variable to track if a swap is needed
+            FOR each row below the current row:
+                IF a non-zero element is found in the current column:
+                    Swap the current row with the row having the non-zero element
+                    Set the swap variable to True
+                    BREAK the loop
+            IF no swap was made:
+                Decrement the rank
+    RETURN the rank
+END FUNCTION
+```
 
