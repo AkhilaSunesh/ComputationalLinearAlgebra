@@ -36,6 +36,7 @@ Let u=(u1,u2,u3)
 v= (v1,v2,v3)
 Then the inner product of u and v is defined as,
 <u,v>  = u1v1+u2v2+u3v3
+**Note : In image processing the aggregate effect of masking is the inner product of the image with the mask**
 
 #### Example
 Computer = operations are performed along columns
