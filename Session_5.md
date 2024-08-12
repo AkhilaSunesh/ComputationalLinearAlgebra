@@ -40,4 +40,8 @@ Then the inner product of u and v is defined as,
 
 #### Example
 Computer = operations are performed along columns
+Inner product with identity matrix = trace
+
+**Note: If A is an nXn matrix then trace(A) = <A,In>
+### Outer Product
 
